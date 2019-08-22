@@ -1,0 +1,72 @@
+
+.recommend {
+	border-top: 2rpx solid #ccc;
+	margin-top: 40rpx;
+	padding: 40rpx 20rpx;
+}
+.title {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-pack: justify;
+	-webkit-justify-content: space-between;
+	    -ms-flex-pack: justify;
+	        justify-content: space-between;
+}
+.title .more {
+	width: 128rpx;
+	height: 48rpx;
+	border: 2rpx solid #ccc;
+	text-align: center;
+	-webkit-border-radius: 24rpx;
+	        border-radius: 24rpx;
+	line-height: 48rpx;
+	font-size: 24rpx;
+	color: #666;
+}
+.content ._ul {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-flex-wrap: wrap;
+	    -ms-flex-wrap: wrap;
+	        flex-wrap: wrap;
+	-webkit-box-pack: justify;
+	-webkit-justify-content: space-between;
+	    -ms-flex-pack: justify;
+	        justify-content: space-between;
+	padding-top: 40rpx;
+}
+.content ._ul ._li {
+	position: relative;
+	width: 30%;
+}
+.content ._li ._img {
+	width: 100%;
+	-webkit-border-radius: 10rpx;
+	        border-radius: 10rpx;
+}
+.content ._li .text {
+	display: -webkit-box;
+	margin-bottom: 20rpx;
+	-o-text-overflow: ellipsis;
+	   text-overflow: ellipsis;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 2;
+	overflow: hidden;
+	white-space: normal;
+	font-size: 24rpx;
+}
+.content ._li .playcount {
+	position: absolute;
+	top: 0;
+	right: 10rpx;
+	color: #FFFFFF;
+	font-size: 24rpx;
+}
+.playcount ._span {
+	vertical-align: middle;
+}
+

@@ -1,0 +1,8 @@
+
+.swiper-item ._img {
+	width: 100%;
+}
+.swiper >>> .uni-swiper-dots-horizontal {
+	bottom: 40rpx!important;
+}
+

@@ -1,0 +1,16 @@
+
+.result {
+	padding: 20rpx;
+}
+.content ._li {
+	padding: 10rpx 8rpx;
+}
+.name {
+	font-size: 32rpx;
+	color: rgb(100, 80, 228);
+}
+.artists {
+	font-size: 20rpx;
+	color: #999;
+}
+

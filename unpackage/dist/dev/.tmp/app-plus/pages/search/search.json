@@ -1,0 +1,14 @@
+{
+  "titleNView": {
+    "searchInput": {
+      "autoFocus": "true",
+      "placeholder": "想听点什么？",
+      "align": "left"
+    }
+  },
+  "usingComponents": {
+    "history": "/pages/search/history",
+    "hot": "/pages/search/hot",
+    "result": "/pages/search/result"
+  }
+}

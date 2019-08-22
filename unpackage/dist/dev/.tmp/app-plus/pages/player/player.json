@@ -1,0 +1,9 @@
+{
+  "titleNView": false,
+  "usingComponents": {
+    "bar": "/components/navigation/bar",
+    "prog": "/pages/player/progress",
+    "control": "/pages/player/control",
+    "list-mini": "/pages/list/list-mini"
+  }
+}

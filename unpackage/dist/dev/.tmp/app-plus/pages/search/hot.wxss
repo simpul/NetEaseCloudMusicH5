@@ -1,0 +1,39 @@
+
+.hot {
+	padding: 20rpx;
+}
+.content ._ul ._li {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+}
+.content ._ul ._li:first-child .index, .content ._ul ._li:nth-child(2) .index, .content ._ul ._li:nth-child(3) .index {
+	color: red;
+}
+.content ._ul ._li:first-child .name, .content ._ul ._li:nth-child(2) .name, .content ._ul ._li:nth-child(3) .name {
+	font-weight: bold;
+}
+.content .index {
+	width: 14%;
+	height: 100rpx;
+	text-align: center;
+	line-height: 100rpx;
+	color: #999;
+}
+.content .detail {
+	font-size: 24rpx;
+	padding-top: 12rpx;
+	width: 90%;
+}
+.name {
+	font-size: 32rpx;
+}
+.score {
+	color: #ccc;
+	margin-left: 20rpx;
+}
+.cont {
+	color: #999;
+}
+

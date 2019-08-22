@@ -1,0 +1,1 @@
+<view data-event-opts="{{[['tap',[['changeBody',['$event']]]]]}}" class="cover" bindtap="__e"><image src="{{songDetail.al.picUrl}}" class="_img"></image><view class="btns"><view class="iconfont _i"></view><view class="iconfont _i"></view><view class="iconfont _i"></view><view class="iconfont _i"></view><view class="iconfont _i"></view></view></view>

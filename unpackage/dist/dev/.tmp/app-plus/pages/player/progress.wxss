@@ -1,0 +1,24 @@
+
+.progress {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-justify-content: space-around;
+	    -ms-flex-pack: distribute;
+	        justify-content: space-around;
+	font-size: 28rpx;
+	padding: 30rpx 10rpx 0;
+	line-height: 76rpx;
+}
+slider {
+	width: 70%;
+	margin: 20rpx 0;
+}
+.current {
+	color: #eee;
+}
+.total {
+	color: #999;
+}
+

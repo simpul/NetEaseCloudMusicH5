@@ -1,0 +1,28 @@
+{
+  "navigationBarTitleText": "音乐播放器",
+  "titleNView": {
+    "buttons": [
+      {
+        "type": "none",
+        "float": "left",
+        "text": "",
+        "fontSrc": "./static/iconfont.ttf",
+        "fontSize": "22px"
+      },
+      {
+        "type": "none",
+        "float": "right",
+        "text": "",
+        "fontSrc": "./static/iconfont.ttf"
+      }
+    ]
+  },
+  "usingComponents": {
+    "index-swiper": "/pages/index/index-swiper",
+    "index-menu": "/pages/index/index-menu",
+    "index-recommend": "/pages/index/index-recommend",
+    "index-newdisk": "/pages/index/index-newdisk",
+    "index-player": "/pages/index/index-player",
+    "list-mini": "/pages/list/list-mini"
+  }
+}

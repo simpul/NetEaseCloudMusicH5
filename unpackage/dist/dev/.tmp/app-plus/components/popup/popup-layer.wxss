@@ -1,0 +1,25 @@
+
+.popup-layer {
+	position: fixed;
+	z-index: 999999;
+	background: rgba(0, 0, 0, .6);
+	height: 100%;
+	width: 100%;
+	top: 0;
+	left: 0;
+	overflow: hidden;
+}
+.popup-content {
+	position: fixed;
+	z-index: 1000000;
+	background: #FFFFFF;
+	-webkit-transition: -webkit-transform .3s ease;
+	transition: -webkit-transform .3s ease;
+	-o-transition: transform .3s ease;
+	transition: transform .3s ease;
+	transition: transform .3s ease, -webkit-transform .3s ease;
+	overflow: hidden;
+	-webkit-border-radius: 60rpx 60rpx 0 0;
+	        border-radius: 60rpx 60rpx 0 0;
+}
+
