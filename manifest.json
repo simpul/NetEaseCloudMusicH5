@@ -76,7 +76,7 @@
             "base" : ""
         },
         "devServer" : {
-            "https" : false
+            "https" : true
         },
         "domain" : ""
     }
