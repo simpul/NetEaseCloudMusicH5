@@ -6,8 +6,8 @@
 		</view>
 		<view class="content">
 			<ul>
-				<li v-for="(item, index) in recommendList" :key="index">
-					<img :src="item.picUrl" :alt="item.name">
+				<li v-for="(item, index) in recommendList" :key="index" @click="toRecommend(index)">
+					<img :src="item.picUrl+'?param=200y200'" :alt="item.name">
 					<view class="text">{{item.name}}</view>
 					<view class="playcount">
 						<cmd-icon type="play" color="#fff" size="16"></cmd-icon>
@@ -26,6 +26,13 @@
 		computed: {
 			recommendList() {
 				return this.recommend.slice(0, 6);
+			}
+		},
+		methods: {
+			toRecommend(index) {
+				uni.navigateTo({
+					url: `../recommend/recommend?index=${index}`
+				})
 			}
 		},
 		filters: {

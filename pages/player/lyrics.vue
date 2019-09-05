@@ -19,38 +19,17 @@
 		props: ['changeBody'],
 		data() {
 			return {
-				haveLyric: false,
-				rawLyric: '',
-				lycArr: [],
 				lycIndex: 0, // 激活歌词的index值
 			}
 		},
 		mounted() {
-			let self = this;
-			uni.request({
-				url: `http://47.112.12.190/lyric?id=${self.songId}`,
-				success: (res) => {
-					// res.data.nolyric  true没有歌词 undefined有歌词
-					self.haveLyric = !res.data.nolyric;
-					if (self.haveLyric) {
-						self.rawLyric = res.data.lrc.lyric;
-						self.getLyricArr();
-						self.audio.onTimeUpdate(()=>{
-							self.countLycIndex();
-						});
-					}
-				}
-			})
+			this.audio.onTimeUpdate(() => {
+				this.countLycIndex();
+			});
 		},
 		methods: {
-			getLyricArr() {
-				for (let v of this.rawLyric.split('\n')) {
-					v.replace(/^\[([0-9:\.]+)\](.+)/, (s, a, b) => {
-						this.lycArr.push({time: a, text: b});
-					})
-				}
-			},
 			countLycIndex() {
+				if (!this.haveLyric) return true;
 				let index = -1;
 				for (var v of this.lycArr) {
 					if (this.currentTime >= v.time) {
@@ -63,7 +42,17 @@
 			}
 		},
 		computed: {
-			...Vuex.mapState(['songId', 'currentTime', 'audio']),
+			...Vuex.mapState(['currentTime', 'audio', 'haveLyric', 'lyric']),
+			lycArr() {
+				if (!this.haveLyric) return "";
+				let arr = [];
+				for (let v of this.lyric.split('\n')) {
+					v.replace(/^\[([0-9:\.]+)\](.+)/, (s, a, b) => {
+						arr.push({time: a, text: b});
+					})
+				}
+				return arr;
+			}
 		}
 	}
 </script>

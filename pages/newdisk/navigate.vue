@@ -3,11 +3,7 @@
 		<cmd-icon @click="goBack" type="chevron-left" size="26" color="#fff"></cmd-icon>
 		<view class="text">
 			<p class="name">
-				<slot name="songName">歌名</slot>
-			</p>
-			<p class="artists">
-				<slot name="artists">歌手</slot>
-				&gt;
+				<slot name="songName">歌单</slot>
 			</p>
 		</view>
 	</view>
@@ -37,19 +33,12 @@
 		line-height: 80upx!important;
 	}
 	.bar .text {
+		display: flex;
+		align-items: center;
 		margin-left: 20upx;
 		color: #FFFFFF;
 	}
 	.text .name {
-		font-weight: bold;
-		font-size: 36upx;
-	}
-	.text .artists {
-		color: #ccc;
-		font-size: 28upx;
-		width: calc(100vw - 80upx);
-		overflow: hidden;
-		white-space: nowrap;
-		text-overflow: ellipsis;
+		font-size: 40upx;
 	}
 </style>

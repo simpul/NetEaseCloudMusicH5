@@ -1,6 +1,6 @@
 <template>
 	<view @click="changeBody" class="cover">
-		<img :src="songDetail.al.picUrl" >
+		<img :src="songDetail.al.picUrl+'?param=200y200'" :style="{transform: `rotate(${angle}deg)`}" />
 		<view class="btns">
 			<i class="iconfont">&#xe612;</i>
 			<i class="iconfont">&#xe663;</i>
@@ -14,9 +14,24 @@
 <script>
 	import Vuex from 'vuex'
 	export default {
+		mounted() {
+			this.resetAngle();
+		},
 		props: ['changeBody'],
 		computed: {
-			...Vuex.mapState(['songDetail'])
+			...Vuex.mapState(['songDetail', 'playState', 'angle'])
+		},
+		methods: {
+			...Vuex.mapMutations(['startRotate', 'stopRotate', 'resetAngle'])
+		},
+		watch: {
+			playState(newState, oldState) {
+				if (newState) {
+					this.startRotate();
+				} else {
+					this.stopRotate();
+				}
+			}
 		}
 	}
 </script>

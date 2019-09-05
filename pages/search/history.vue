@@ -33,27 +33,27 @@
 
 <style>
 	.history {
-		padding-bottom: 10px;
+		padding-bottom: 20upx;
 	}
 	.title {
-		padding: 10px;
+		padding: 20upx;
 		display: flex;
 		justify-content: space-between;
 	}
 	.content {
-		height: 35px;
+		height: 70upx;
 		overflow: hidden;
 	}
 	.content ul {
-		display: flex;
+		display: -webkit-box;
 		overflow-x: scroll;
-		padding-bottom: 10px;
+		padding-bottom: 20upx;
 	}
 	.content ul li {
 		background-color: rgba(204, 204, 204, .3);
-		border-radius: 20px;
-		font-size: 14px;
-		padding: 6px 10px;
-		margin-left: 10px;
+		border-radius: 40upx;
+		font-size: 28upx;
+		padding: 12upx 20upx;
+		margin-left: 20upx;
 	}
 </style>

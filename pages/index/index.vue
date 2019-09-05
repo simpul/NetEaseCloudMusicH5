@@ -1,5 +1,6 @@
 <template>
 	<view class="index">
+		<index-title @left="clickLeft" @right="clickRight"></index-title>
 		<index-swiper :banners="banners"></index-swiper>
 		<index-menu></index-menu>
 		<index-recommend :recommend="recommend"></index-recommend>
@@ -10,6 +11,7 @@
 </template>
 
 <script>
+	import indexTitle from '@/components/navigation/title.vue'
 	import indexSwiper from '@/pages/index/index-swiper.vue'
 	import indexMenu from '@/pages/index/index-menu.vue'
 	import indexRecommend from '@/pages/index/index-recommend.vue'
@@ -29,14 +31,13 @@
 			return {
 				banners: [],
 				recommend: [],
-				newdisk: [],
-				boolShow: false
+				newdisk: []
 			}
 		},
 		computed: {
 			...Vuex.mapState(['songDetail', 'audio']),
 		},
-		onLoad() {
+		onShow() {
 			const self = this;
 			// 请求轮播图数据
 			uni.request({
@@ -51,6 +52,7 @@
 				url: 'http://47.112.12.190/personalized',
 				success: (res) => {
 					self.recommend = res.data.result;
+					console.log(self.recommend);
 				}
 			})
 			
@@ -59,16 +61,14 @@
 				url: 'http://47.112.12.190/album/newest',
 				success: (res) => {
 					self.newdisk = res.data.albums;
+					console.log(self.newdisk);
 				}
 			})
-		},
-		onNavigationBarButtonTap(e) {
-			this[e.index]();
 		},
 		methods: {
 			...Vuex.mapMutations(['pauseMusic']),
 			// 菜单栏
-			0() {
+			clickLeft() {
 				uni.showToast({
 					title: '功能开发中(⊙o⊙)',
 					duration: 1000,
@@ -77,7 +77,7 @@
 			},
 			
 			// 搜索栏
-			1() {
+			clickRight() {
 				uni.navigateTo({
 					url: '../search/search'
 				})
@@ -92,7 +92,8 @@
 			indexRecommend,
 			indexNewdisk,
 			indexPlayer,
-			listMini
+			listMini,
+			indexTitle
 		}
 	}
 </script>

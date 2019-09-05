@@ -1,7 +1,7 @@
 <template>
 	<view class="player" v-if="songDetail.name">
 		<view class="pic" @click="toPlayer">
-			<img :src="songDetail.al.picUrl">
+			<img :src="songDetail.al.picUrl+'?param=50y50'">
 		</view>
 		<view class="detail" @click="toPlayer">
 			<p class="name onerow">{{songDetail.name}}</p>
@@ -24,7 +24,7 @@
 			...Vuex.mapState(['playState', 'songId', 'songDetail', 'audio']),
 		},
 		methods: {
-			...Vuex.mapMutations(['playMusic', 'pauseMusic']),
+			...Vuex.mapMutations(['playMusic', 'pauseMusic', 'startRotate', 'stopRotate']),
 			switchState() {
 				if (this.playState) {
 					this.pauseMusic();
@@ -51,6 +51,15 @@
 				return str.slice(0, -1)
 			}
 		},
+		watch: {
+			playState(newState, oldState) {
+				if (newState) {
+					this.startRotate();
+				} else {
+					this.stopRotate();
+				}
+			}
+		},
 		components: {
 			cmdIcon
 		}
@@ -60,6 +69,7 @@
 <style>
 	.player {
 		position: fixed;
+		z-index: 2;
 		bottom: 0;
 		left: 0;
 		display: flex;
@@ -68,6 +78,7 @@
 		height: 100upx;
 		padding-top: 20upx;
 		background-color: rgba(255, 255, 255, .9);
+		border-top: 1px solid #ccc;
 	}
 	.onerow {
 		overflow: hidden;

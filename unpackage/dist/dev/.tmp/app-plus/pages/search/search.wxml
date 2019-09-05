@@ -1,1 +1,0 @@
-<view class="search"><history hidden="{{!(showHistory)}}" vue-id="1" search="{{search}}" bind:__l="__l"></history><result hidden="{{!(showResult)}}" vue-id="2" result="{{searchResult}}" bind:__l="__l"></result><hot hidden="{{!(showHot)}}" vue-id="3" search="{{search}}" bind:__l="__l"></hot></view>

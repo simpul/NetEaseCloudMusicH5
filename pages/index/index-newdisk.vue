@@ -6,8 +6,8 @@
 		</view>
 		<view class="content">
 			<ul>
-				<li v-for="(item, index) in newdisklist" :key="index">
-					<img :src="item.picUrl" :alt="item.name">
+				<li v-for="(item, index) in newdisklist" :key="index" @click="toNewdisk(index)">
+					<img :src="item.picUrl+'?param=200y200'" :alt="item.name">
 					<view class="text">{{item.name}}</view>
 					<view class="artists">{{item.artists | artists}}</view>
 				</li>
@@ -22,6 +22,13 @@
 		computed: {
 			newdisklist() {
 				return this.newdisk.slice(0, 6);
+			}
+		},
+		methods: {
+			toNewdisk(index) {
+				uni.navigateTo({
+					url: `../newdisk/newdisk?index=${index}`
+				})
 			}
 		},
 		filters: {

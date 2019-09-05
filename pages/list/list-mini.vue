@@ -3,43 +3,28 @@
 		<popup-layer :direction="'top'" ref="popupRef">
 			<view class="list-content">
 				<view class="head">
-					<view class="mode" @click="switchPlayMode"><i class="iconfont" v-html="modeIcon"></i>{{this.modeText}} (4)</view>
+					<view class="mode" @click="switchPlayMode"><i class="iconfont" v-html="modeIcon"></i>{{this.modeText}} ({{this.listArr.length}})</view>
 					<!-- 随机&#xe71f; 循环&#xe621; 单曲&#xe610;-->
-					<view class="trash"><cmd-icon type="trash" size="24" color="#666"></cmd-icon></view>
+					<view class="trash" @click="deleteAllSong"><cmd-icon type="trash" size="24" color="#666"></cmd-icon></view>
 				</view>
 				<view class="songs">
 					<ul>
-						<li class="">
-							<view class="detail">
-								<view class="now">
+						<li v-for="(item, index) in listArr" :key="index">
+							<view class="detail" @click="play({id:item.id, index})">
+								<view v-if="songId === item.id" class="now">
 									<cmd-icon type="volume-plus" size="24" color="red"></cmd-icon>
 								</view>
-								<view class="song-name ht">
-									期待爱
+								<view :class="{'song-name': true, 'ht': true, active: songId === item.id}">
+									{{item.name}}
 								</view>
 								<view class="artists-name ht">
-									- 林俊杰/金莎
+									- {{item.artists | artists}}
 								</view>								
 							</view>
-							<span class="delete">
+							<span class="delete" @click="removeSong(index)">
 								X
 							</span>
 						</li>
-						<li>歌曲</li>
-						<li>歌曲</li>
-						<li>歌曲</li>
-						<li>歌曲</li>
-						<li>歌曲</li>
-						<li>歌曲</li>
-						<li>歌曲</li>
-						<li>歌曲</li>
-						<li>歌曲</li>
-						<li>歌曲</li>
-						<li>歌曲</li>
-						<li>歌曲</li>
-						<li>歌曲</li>
-						<li>歌曲</li>
-						<li>歌曲</li>
 					</ul>
 				</view>
 			</view>
@@ -53,9 +38,8 @@
 	
 	import Vuex from 'vuex'
 	export default {
-		props: ['boolShow'],
 		computed: {
-			...Vuex.mapState(['playMode']),
+			...Vuex.mapState(['playMode', 'listArr', 'songId']),
 			modeIcon() {
 				let arr = ['&#xe610;', '&#xe621;', '&#xe71f;'];
 				return arr[this.playMode];
@@ -66,7 +50,24 @@
 			}
 		},
 		methods: {
-			...Vuex.mapMutations(['switchPlayMode']),
+			...Vuex.mapMutations(['switchPlayMode', 'deleteAllSong', 'removeSong', 'setPlayIndex']),
+			...Vuex.mapActions(['setSrc']),
+			play(obj) {
+				if (obj.id !== this.songId) {
+					this.setSrc(obj.id);
+					this.setPlayIndex(obj.index);
+				}
+			}
+		},
+		filters: {
+			artists(value) {
+				let arr = value;
+				let str = '';
+				for (let i of arr) {
+					str += i.name + ',';
+				}
+				return str.slice(0, -1)
+			}
 		},
 		components: {
 			popupLayer,
@@ -117,7 +118,7 @@
 		height: 84upx;
 		padding: 0 28upx;
 	}
-	.active .detail{
+	.active {
 		color: red;
 	}
 	.detail {

@@ -1,9 +1,9 @@
 <template>
 	<view class="control">
 		<i @click="switchMode" class="iconfont" v-html="mode"></i> <!-- 随机&#xe71f; 循环&#xe621; 单曲&#xe610;-->
-		<i class="iconfont">&#xe600;</i>
+		<i @click="prev" class="iconfont">&#xe600;</i>
 		<cmd-icon @click="switchState" :type="playState ? 'pause' : 'play'" size="50" color="#ccc"></cmd-icon>
-		<i class="iconfont rotate">&#xe600;</i>
+		<i @click="next" class="iconfont rotate">&#xe600;</i>
 		<i @click="toList" class="iconfont fs30">&#xe61a;</i>
 	</view>
 </template>
@@ -21,6 +21,7 @@
 		},
 		methods: {
 			...Vuex.mapMutations(['playMusic', 'pauseMusic', 'switchPlayMode']),
+			...Vuex.mapActions(['nextSong', 'prevSong']),
 			switchState() {
 				if (this.playState) {
 					this.pauseMusic();
@@ -33,6 +34,12 @@
 			},
 			toList() {
 				this.$emit("list");
+			},
+			prev() {
+				this.prevSong();
+			},
+			next() {
+				this.nextSong();
 			}
 		},
 		components: {

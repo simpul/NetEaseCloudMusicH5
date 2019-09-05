@@ -1,7 +1,0 @@
-{
-  "usingComponents": {
-    "popup-layer": "/components/popup/popup-layer",
-    "cmd-icon": "/components/cmd-icon/cmd-icon"
-  },
-  "component": true
-}

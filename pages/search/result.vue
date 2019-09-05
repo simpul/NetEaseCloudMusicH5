@@ -19,13 +19,18 @@
 		updated() {
 			document.documentElement.scrollTop = 0
 		},
+		computed: {
+			...Vuex.mapState(['songId'])
+		},
 		methods: {
 			...Vuex.mapActions(['setSrc']),
 			play(id) {
-				this.setSrc(id);
-				uni.navigateTo({
-					url: '../player/player'
-				})
+				if (id !== this.songId) {
+					this.setSrc(id);
+					uni.navigateTo({
+						url: '../player/player'
+					})
+				}
 			}
 		},
 		filters: {

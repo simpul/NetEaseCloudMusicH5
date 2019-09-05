@@ -19,7 +19,7 @@
 			<control @list="toList"></control>
 			<list-mini ref="listRef"></list-mini>
 		</view>
-		<img class="mask" :src="songDetail.al.picUrl" >
+		<img class="mask" :src="songDetail.al.picUrl+'?param=50y50'" >
 	</view>
 </template>
 
@@ -54,7 +54,7 @@
 			}
 		},
 		computed: {
-			...Vuex.mapState(['songDetail'])
+			...Vuex.mapState(['songDetail']),
 		},
 		filters: {
 			artists(value) {

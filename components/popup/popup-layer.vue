@@ -119,7 +119,7 @@
 <style>
 	.popup-layer {
 		position: fixed;
-		z-index: 999999;
+		z-index: 99;
 		background: rgba(0, 0, 0, .6);
 		height: 100%;
 		width: 100%;
@@ -130,7 +130,7 @@
 
 	.popup-content {
 		position: fixed;
-		z-index: 1000000;
+		z-index: 100;
 		background: #FFFFFF;
 		transition: transform .3s ease;
 		overflow: hidden;

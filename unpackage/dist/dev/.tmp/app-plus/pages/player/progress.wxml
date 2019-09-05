@@ -1,1 +1,0 @@
-<view class="progress"><view class="current">{{currentTime}}</view><slider backgroundColor="#999" block-size="12" activeColor="#eee" value="{{value}}" data-event-opts="{{[['change',[['drag',['$event']]]],['changing',[['dragging',['$event']]]]]}}" bindchange="__e" bindchanging="__e"></slider><view class="total">{{totalTime}}</view></view>

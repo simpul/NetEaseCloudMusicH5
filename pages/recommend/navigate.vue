@@ -3,11 +3,10 @@
 		<cmd-icon @click="goBack" type="chevron-left" size="26" color="#fff"></cmd-icon>
 		<view class="text">
 			<p class="name">
-				<slot name="songName">歌名</slot>
+				<slot name="songName">歌单</slot>
 			</p>
 			<p class="artists">
-				<slot name="artists">歌手</slot>
-				&gt;
+				<slot name="artists">编辑推荐</slot>
 			</p>
 		</view>
 	</view>
@@ -41,13 +40,12 @@
 		color: #FFFFFF;
 	}
 	.text .name {
-		font-weight: bold;
 		font-size: 36upx;
 	}
 	.text .artists {
 		color: #ccc;
-		font-size: 28upx;
-		width: calc(100vw - 80upx);
+		font-size: 24upx;
+		width: calc(100vw - 100upx);
 		overflow: hidden;
 		white-space: nowrap;
 		text-overflow: ellipsis;
