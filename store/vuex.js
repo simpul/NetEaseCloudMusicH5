@@ -155,7 +155,6 @@ export default new Vuex.Store({
 				uni.request({
 					url: `http://47.112.12.190/check/music?id=${id}`,
 					success(result) {
-						console.log(result);
 						if (result.data.success) {
 							resolve("");
 						} else {

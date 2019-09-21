@@ -1,7 +1,7 @@
 <template>
 	<view class="playlist">
 		<view class="head">
-			<view class="playall">
+			<view class="playall" @click="playall">
 				<cmd-icon class="icon" type="play" size="22" color="#000"></cmd-icon>
 				<span>播放全部</span>
 				<span>(共{{trackCount}}首)</span>
@@ -49,6 +49,9 @@
 				}
 				this.setSrc(this.tracks[index].id);
 				this.setPlayIndex(index);
+			},
+			playall() {
+				this.playlist(0);
 			}
 		},
 		filters: {
